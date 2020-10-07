@@ -16,6 +16,8 @@ App = {
     } else {
       // Specify default instance
       App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+
+      window.etherreum.enable();
       web3 = new Web3(App.web3Provider);
     }
     return App.initContract();
@@ -102,7 +104,7 @@ App = {
       loader.hide();
       content.show();
     }).catch(function(error) {
-      console.warn(error);
+      console.warn(error.message);
     });
   },
 
