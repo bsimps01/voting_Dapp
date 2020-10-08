@@ -11,15 +11,38 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
   <body>
+
+    <div class="main-container" style="width: 650px;">
+      <div class="col-lg-12">
+        <h1>Who is the GOAT?</h1>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <div class="form-container">
+        <h3>Add a GOAT-worthy Player</h3>
+        <form onSubmit="App.createCandidate(); return false;">
+            <input type="text" class="candidate-input" placeholder="Candidate name" id="inputCandidate">
+            <button id="addCandidate" class="button input-btn">Add Candidate</button>
+        </form>
+      </div>
+
+      <div class="form-container" id="voting">
+        <form onSubmit="App.castVote(); return false;">
+          <div class="form-group">
+            <label for="candidatesSelect">Select Candidate</label>
+            <select class="form-control" id="candidatesSelect">
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Vote</button>
+          <hr />
+        </form>
+      </div>
+    </div>
+
     <div class="container" style="width: 650px;">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="text-center">Who is the GOAT?</h1>
-          <hr/>
-          <br/>
-          <div id="loader">
-            <p class="text-center">Loading...</p>
-          </div>
           <div id="content" style="display: none;">
             <table class="table">
               <thead>
@@ -29,24 +52,16 @@
                   <th scope="col">Votes</th>
                 </tr>
               </thead>
-              <tbody id="candidatesResults">
-              </tbody>
+              <tbody id="candidatesResults"></tbody>
             </table>
             <hr/>
-            <form onSubmit="App.castVote(); return false;">
-              <div class="form-group">
-                <label for="candidatesSelect">Select Candidate</label>
-                <select class="form-control" id="candidatesSelect">
-                </select>
-              </div>
-              <button type="submit" class="btn btn-primary">Vote</button>
-              <hr />
-            </form>
             <p id="accountAddress" class="text-center"></p>
           </div>
+
         </div>
       </div>
     </div>
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
