@@ -22,8 +22,8 @@ contract Election {
     );
 
     constructor () public {
-        addCandidate("Candidate 1");
-        addCandidate("Candidate 2");
+        addCandidate("Michael Jordan");
+        addCandidate("Lebron James");
     }
 
     function addCandidate (string memory _name) private {

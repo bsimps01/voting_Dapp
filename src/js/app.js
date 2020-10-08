@@ -63,7 +63,6 @@ App = {
 
     // Load account data
     web3.eth.getCoinbase(function(err, account) {
-      debugger;
       if(web3.currentProvider.enable){
         //For metamask
         web3.currentProvider.enable().then(function(acc){
@@ -125,6 +124,17 @@ App = {
       $("#loader").show();
     }).catch(function(err) {
       console.error(err);
+    });
+  },
+
+  addCandidate: function() {
+    const inputCandidate = $('#inputCandidate').val();
+    App.contracts.Election.deployed().then(function(instance) {
+      return instance.addCandidate(inputCandidate);
+    }).then(function() {
+      location.reload();
+    }).catch(function(err) {
+      console.log(err);
     });
   }
 };
